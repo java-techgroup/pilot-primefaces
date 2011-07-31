@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	
+	<f:view contentType="text/html">
+	
+		<h:head>
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+			<link rel="stylesheet" type="text/css" href="style/default.css" media="screen" />
+			<title>Usermanagement - JSF2 / Primefaces test </title>
+			<ui:insert name="head"></ui:insert>
+			<style type="text/css">
+				.new {
+					background: url(img/new.png) no-repeat;
+				}
+				
+				.search {
+					background: url(img/search.png) no-repeat;
+				}
+			</style>
+		</h:head>
+	
+		<h:body>
+			<div class="outer-container">
+			
+				<div class="inner-container">
+			
+					<div class="header">
+						<div class="title">
+							<span class="sitename"><a href="index.html">JavaTechGroup</a></span>
+							<div class="slogan">Usermanagemenet</div>
+						</div>
+					</div>
+
+					<p:menubar id="menu">
+						<p:submenu label="Ügyfél típus">
+							<p:menuitem value="Létrehoz" url="/createClientType.jsf" styleClass="new"></p:menuitem>
+							<p:menuitem value="Kezelés" url="/manageClientTypes.jsf" styleClass="search"></p:menuitem>
+						</p:submenu>
+						<p:submenu label="Options">
+							<p:menuitem value="xxxx" url="/xxxx.jsf"></p:menuitem>
+							<p:menuitem value="Logout" url="/logout"></p:menuitem>
+						</p:submenu>
+					</p:menubar>
+			
+					<div class="main">
+			
+						<div class="content">
+							<ui:insert name="content">
+							</ui:insert>
+						</div>
+			
+						<div class="clearer"></div>
+			
+					</div>
+			
+					<div class="footer">
+						<span class="left">Powered by <a href="http://primefaces.prime.com.tr">PrimeFaces</a></span> 
+						<span class="right">
+							<p:ajaxStatus>
+								<f:facet name="start">
+									<h:graphicImage value="img/ajax-loader.gif" />
+								</f:facet>
+								
+								<f:facet name="complete">
+									Status
+								</f:facet>
+							</p:ajaxStatus>
+						 </span>
+			
+						<div class="clearer"></div>
+			
+					</div>
+			
+				</div>
+			
+			</div>
+		
+		</h:body>
+	</f:view>
+
+</html>

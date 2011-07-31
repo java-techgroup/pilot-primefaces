@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="tesztPU" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>java:comp/env/jdbc/TestDB</non-jta-data-source>
+		<properties>
+			<!-- Scan for annotated classes and Hibernate mapping XML files -->
+		    <property name="hibernate.archive.autodetection" value="class, hbm"/>
+		    
+   			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+			<property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/> 
+            
+            <!-- fejlesztes soran hasznos lehet, mert neha a batch futtatas elnyel alattomosan hibakat,s nem latszik a hiba tenyleges oka -->
+            <property name="hibernate.jdbc.batch_size" value="0" />
+   		</properties>
+	</persistence-unit>
+	
+</persistence>

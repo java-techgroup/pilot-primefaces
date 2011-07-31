@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="template.xhtml">
+	
+	<ui:define name="head">
+		<style type="text/css">
+			.label {
+				width:20%;
+				padding:2px;
+			}
+
+			.value {
+				width:80%;
+				padding:2px;
+			}
+			
+			.grid {
+				width:100%;
+			}
+		</style>
+	</ui:define>
+	
+  <ui:define name="content">
+		
+		<h:form prependId="false">
+			
+			<p:panel id="panel" header="New Movie">
+				<p:growl showDetail="true"/>
+				
+				<h:panelGrid columns="2"  columnClasses="label,value" styleClass="grid">
+					<h:outputLabel for="code" value="Kódnév" />
+					<h:inputText id="code" value="#{createClientType.clientType.code}" required="true" requiredMessage="Code is required dude" validatorMessage="Max length is 25">
+						<f:validateLength maximum="25" />
+					</h:inputText>
+					
+					<h:outputLabel for="segment" value="Besorolás" />
+					<h:inputText id="segment" value="#{createClientType.clientType.segment}" required="true" requiredMessage="Segment is required" validatorMessage="Max length is 25">
+						<f:validateLength maximum="25" />
+					</h:inputText>
+					
+					<h:outputLabel for="description" value="Leírás" />
+					<h:inputText id="description" value="#{createClientType.clientType.description}" required="true" requiredMessage="Description is required" validatorMessage="Max length is 100">
+						<f:validateLength maximum="100" />
+					</h:inputText>
+					
+					
+					<h:outputText />
+
+					<h:panelGroup>
+						<h:panelGrid columns="2">
+							<p:commandButton value="Reset" type="reset" />
+							<p:commandButton value="Save" actionListener="#{createClientType.save}" async="true" update="panel">
+								<p:confirmDialog yesLabel="Just save it" noLabel="Hmm, nope" 
+									message="Seriously dude, are you sure?" 
+									header="Confirm :)" severity="warn" fixedCenter="true" draggable="false"/>
+							</p:commandButton>
+						</h:panelGrid>
+					</h:panelGroup>
+					
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form>
+		
+  </ui:define>
+  
+</ui:composition>

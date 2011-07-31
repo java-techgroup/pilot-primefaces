@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<Context path="/usermng" docBase="usermng" reloadable="true">
+
+  <Resource 
+  	name="jdbc/TestDB"
+  	auth="Container"
+  	type="javax.sql.DataSource"
+    maxActive="100" maxIdle="30" maxWait="10000"
+    username="teszt"
+    password="teszt123"
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://localhost:5432/TESZT"/>
+    
+</Context>

@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="template.xhtml">
+
+  <ui:define name="content">
+		<h:messages />
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel for="title" value="Title"></h:outputLabel>
+				<h:inputText id="title" value="#{viewMovie.movie.title}"></h:inputText>
+				
+				<h:outputLabel for="discs" value="Number of Discs"></h:outputLabel>
+				<h:inputText id="discs" value="#{viewMovie.movie.discs}"></h:inputText>
+				
+				<h:outputLabel for="format" value="Format"></h:outputLabel>
+				<h:selectOneMenu id="format" value="#{viewMovie.movie.format}">
+					<f:selectItem itemLabel="DVD" itemValue="DVD" />
+					<f:selectItem itemLabel="BLU-RAY" itemValue="BLURAY" />
+				</h:selectOneMenu>
+				
+			</h:panelGrid>
+			
+			<h:commandButton value="Update" action="#{viewMovie.update}"></h:commandButton>
+			<h:commandButton value="Delete" action="#{viewMovie.remove}" onclick="return confirm('You sure brotha?');"></h:commandButton>
+			
+		</h:form>
+  </ui:define>
+  
+</ui:composition>
